@@ -1,8 +1,7 @@
-const BASE_URL = 'https://apna-bank-i5zq.vercel.app/'; // Replace with your actual backend URL
-
+const BASE_URL = 'https://apna-bank-i5zq.vercel.app/'; 
 
 document.addEventListener('DOMContentLoaded', async () => {
-  const token = localStorage.getItem('token');https://github.com/adi302/apna-bank/blob/main/dashboard.js#L1C0
+  const token = localStorage.getItem('token');
   if (!token) return window.location.href = 'index.html';
 
   const headers = {
@@ -32,7 +31,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
 
     if (accounts.length > 0) {
-      const txRes = await fetch(\`https://apna-bank-i5zq.vercel.app//api/transactions/account/\${accounts[0]._id}\`, { headers });
+      const txRes = await fetch(\`https://apna-bank-i5zq.vercel.app/api/transactions/account/\${accounts[0]._id}\`, { headers });
       const transactions = await txRes.json();
       
       const txList = document.getElementById('transactionsList');

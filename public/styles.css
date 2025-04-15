@@ -1,0 +1,513 @@
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2c3e50;
+    --background-dark: #1a1a1a;
+    --card-dark: #2d2d2d;
+    --text-light: #ffffff;
+    --text-muted: #b3b3b3;
+    --border-dark: #404040;
+    --success-color: #2ecc71;
+    --error-color: #e74c3c;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--background-dark);
+    color: var(--text-light);
+    line-height: 1.6;
+    background-image: url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: -1;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 20px;
+    background: rgba(45, 45, 45, 0.8);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+}
+
+.logo h1 {
+    color: var(--text-light);
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.logo p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+.progress-bar {
+    margin-bottom: 40px;
+    background: rgba(45, 45, 45, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+}
+
+.progress-steps {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.progress-steps::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: var(--border-dark);
+    z-index: 1;
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    background-color: var(--card-dark);
+    padding: 15px;
+    border-radius: 10px;
+    min-width: 120px;
+}
+
+.step-number {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--border-dark);
+    color: var(--text-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.step.active .step-number {
+    background-color: var(--primary-color);
+    transform: scale(1.1);
+}
+
+.step-title {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    transition: all 0.3s ease;
+}
+
+.step.active .step-title {
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.form-step {
+    background-color: rgba(45, 45, 45, 0.8);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    display: none;
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-dark);
+}
+
+.form-step.active {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.form-step h2 {
+    color: var(--text-light);
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 1.8rem;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-dark);
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-light);
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+.otp-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin-top: 5px;
+    transition: all 0.3s ease;
+}
+
+.otp-btn:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+}
+
+.otp-group {
+    display: none;
+}
+
+.upload-container {
+    border: 2px dashed var(--border-dark);
+    padding: 30px;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.upload-container:hover {
+    border-color: var(--primary-color);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.upload-preview {
+    color: var(--text-muted);
+}
+
+.upload-preview i {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.next-btn,
+.prev-btn,
+.submit-btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.next-btn,
+.submit-btn {
+    background-color: var(--primary-color);
+    color: white;
+    float: right;
+}
+
+.prev-btn {
+    background-color: var(--border-dark);
+    color: white;
+    margin-right: 10px;
+}
+
+.next-btn:hover,
+.submit-btn:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+}
+
+.prev-btn:hover {
+    background-color: #404040;
+    transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    .progress-steps {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .progress-steps::before {
+        display: none;
+    }
+
+    .step {
+        flex-direction: row;
+        width: 100%;
+        max-width: 300px;
+        justify-content: flex-start;
+        padding: 10px 15px;
+    }
+
+    .step-number {
+        margin-right: 15px;
+        margin-bottom: 0;
+    }
+
+    .form-step {
+        padding: 20px;
+    }
+
+    .form-step h2 {
+        font-size: 1.5rem;
+    }
+
+    .next-btn,
+    .prev-btn,
+    .submit-btn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .prev-btn {
+        margin-right: 0;
+    }
+}
+
+/* Notification styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 5px;
+    color: white;
+    animation: slideIn 0.3s ease-out;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.notification.info {
+    background-color: var(--primary-color);
+}
+
+.notification.error {
+    background-color: var(--error-color);
+}
+
+.notification.success {
+    background-color: var(--success-color);
+}
+
+@keyframes slideIn {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+/* Add these styles to the existing CSS file */
+
+.bank-logo {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 15px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.step-icon {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    transition: all 0.3s ease;
+}
+
+.step.active .step-icon {
+    color: var(--primary-color);
+    transform: scale(1.1);
+}
+
+.form-step h2 i {
+    margin-right: 10px;
+    color: var(--primary-color);
+}
+
+label i {
+    margin-right: 8px;
+    color: var(--text-muted);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--text-muted);
+    opacity: 0.7;
+}
+
+.otp-btn i {
+    margin-right: 5px;
+}
+
+.next-btn i,
+.prev-btn i,
+.submit-btn i {
+    margin-right: 5px;
+}
+
+/* Add hover effects for buttons */
+.otp-btn:hover,
+.next-btn:hover,
+.prev-btn:hover,
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Add focus styles for inputs */
+input:focus,
+textarea:focus {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Add loading animation for OTP buttons */
+.otp-btn.loading {
+    position: relative;
+    pointer-events: none;
+}
+
+.otp-btn.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    width: 15px;
+    height: 15px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    transform: translateY(-50%);
+}
+
+@keyframes spin {
+    to { transform: translateY(-50%) rotate(360deg); }
+}
+
+/* Add success animation for completed steps */
+.step.completed .step-number {
+    background-color: var(--success-color);
+    animation: pulse 1s ease;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Add error state for invalid inputs */
+input.error,
+textarea.error {
+    border-color: var(--error-color);
+    animation: shake 0.5s ease;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* Add tooltip styles */
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltip-text {
+    visibility: hidden;
+    background-color: var(--card-dark);
+    color: var(--text-light);
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: 4px;
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    font-size: 0.8rem;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Add responsive styles for icons */
+@media (max-width: 768px) {
+    .bank-logo {
+        width: 60px;
+        height: 60px;
+    }
+
+    .step-icon {
+        font-size: 1rem;
+    }
+
+    .form-step h2 i {
+        font-size: 1.2rem;
+    }
+
+    label i {
+        font-size: 0.9rem;
+    }
+} 

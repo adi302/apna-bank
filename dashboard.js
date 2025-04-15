@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   };
 
   try {
-    const accountsRes = await fetch('/api/accounts', { headers });
+    const accountsRes = await fetch('https://apna-bank-i5zq.vercel.app/api/accounts', { headers });
     const accounts = await accountsRes.json();
 
     if (!accountsRes.ok) throw new Error('Failed to fetch accounts');
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
 
     if (accounts.length > 0) {
-      const txRes = await fetch(\`/api/transactions/account/\${accounts[0]._id}\`, { headers });
+      const txRes = await fetch(\`https://apna-bank-i5zq.vercel.app//api/transactions/account/\${accounts[0]._id}\`, { headers });
       const transactions = await txRes.json();
       
       const txList = document.getElementById('transactionsList');

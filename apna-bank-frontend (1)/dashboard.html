@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard - Apna Bank</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Welcome to Your Dashboard</h1>
+      <button onclick="logout()">Logout</button>
+    </header>
+
+    <section id="userInfo" class="card"></section>
+
+    <section id="accountsSection" class="card">
+      <h2>Accounts</h2>
+      <ul id="accountsList"></ul>
+    </section>
+
+    <section id="transactionsSection" class="card">
+      <h2>Recent Transactions</h2>
+      <ul id="transactionsList"></ul>
+    </section>
+  </div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>

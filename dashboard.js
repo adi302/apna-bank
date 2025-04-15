@@ -1,5 +1,8 @@
+const BASE_URL = 'https://apna-bank-i5zq.vercel.app/'; // Replace with your actual backend URL
+
+
 document.addEventListener('DOMContentLoaded', async () => {
-  const token = localStorage.getItem('token');
+  const token = localStorage.getItem('token');https://github.com/adi302/apna-bank/blob/main/dashboard.js#L1C0
   if (!token) return window.location.href = 'index.html';
 
   const headers = {
